@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class UraniumManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  
+    public int collectedUraniumCount;
 
-    // Update is called once per frame
-    void Update()
+    public void IncreaseCoinCount(int count)
     {
-        
+        collectedUraniumCount += count;
     }
 }

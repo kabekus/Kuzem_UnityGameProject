@@ -27,7 +27,7 @@ public class GameDirector : MonoBehaviour
     {
         levelNo = PlayerPrefs.GetInt("HighestLevelReached");
         player.RestartPlayer();
-        //enemyManager.RestartEnemyManager();
+        enemyManager.RestartEnemyManager();
     }
 
     public void LevelFailed()

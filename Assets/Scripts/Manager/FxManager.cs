@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class FxManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ParticleSystem coinCollectesPS;
+    public ParticleSystem bulletHitPS;
+    public ParticleSystem playerHitPS;
+    public void PlayCoinCollectedFX(Vector3 pos)
     {
-        
+        var newPS = Instantiate(coinCollectesPS);
+        newPS.transform.position = pos;
+        newPS.Play();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void PlayBulletHitFX(Vector3 pos)
     {
-        
+        var newPS = Instantiate(bulletHitPS);
+        newPS.transform.position = pos;
+        newPS.Play();
+    }
+    public void PlayPlayerHitFX(Vector3 pos)
+    {
+        var newPS = Instantiate(playerHitPS);
+        newPS.transform.position = pos;
+        newPS.Play();
     }
 }
