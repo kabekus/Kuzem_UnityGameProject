@@ -11,8 +11,7 @@ public class GameDirector : MonoBehaviour
     //public AudioManager audioManager;
 
     public Player player;
-
-    //public MainUI mainUI;
+    public MainUI mainUI;
 
     public int levelNo;
 
