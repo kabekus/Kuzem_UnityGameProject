@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
 
     public float flashDuration;
 
-    //public Coin coinPrefab;
-    //public PowerUp powerUpPrefab;
+    public Uranium uraniumPrefab;
+    public PowerUp powerUpPrefab;
 
     private bool _isEnemyDestroyed;
 
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
     {
         var newBullet = Instantiate(bulletPrefab);
         newBullet.transform.position = transform.position;
-        //newBullet.StartBullet(bulletSpeed, dir, _player.gameDirector);
+        newBullet.StartBullet(bulletSpeed, dir, _player.gameDirector);
     }
 
     public void GetHit(int damage)
@@ -83,13 +83,13 @@ public class Enemy : MonoBehaviour
         _currentHealth -= damage;
         healthTMP.text = _currentHealth.ToString();
 
-        //transform.DOKill();
+        transform.DOKill();
         transform.localScale = Vector3.one;
-        //transform.DOScale(1.2f, .1f).SetLoops(2, LoopType.Yoyo);
+        transform.DOScale(1.2f, .1f).SetLoops(2, LoopType.Yoyo);
 
-        //spriteRenderer.DOKill();
+        spriteRenderer.DOKill();
         spriteRenderer.color = Color.red;
-        //spriteRenderer.DOColor(Color.white, flashDuration).SetLoops(2, LoopType.Yoyo);
+        spriteRenderer.DOColor(Color.white, flashDuration).SetLoops(2, LoopType.Yoyo);
 
         if (_currentHealth <= 0)
         {
@@ -105,15 +105,15 @@ public class Enemy : MonoBehaviour
             {
                 if (Random.value < .5f)
                 {
-                    //var newCoin = Instantiate(coinPrefab);
-                    //newCoin.transform.position = transform.position + Vector3.forward * .8f;
-                    //newCoin.StartCoin();
+                    var newUranium = Instantiate(uraniumPrefab);
+                    newUranium.transform.position = transform.position + Vector3.forward * .8f;
+                    newUranium.StartCoin();
                 }
                 else
                 {
-                    //var newPowerUp = Instantiate(powerUpPrefab);
-                    //newPowerUp.transform.position = transform.position + Vector3.forward * .8f;
-                    //newPowerUp.StartPowerUp();
+                    var newPowerUp = Instantiate(powerUpPrefab);
+                    newPowerUp.transform.position = transform.position + Vector3.forward * .8f;
+                    newPowerUp.StartPowerUp();
                 }
             }
             else

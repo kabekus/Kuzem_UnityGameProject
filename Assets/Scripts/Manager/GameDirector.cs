@@ -6,9 +6,14 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour
 {
     public EnemyManager enemyManager;
+    public UraniumManager uraniumManager;
     public FxManager fxManager;
+    //public AudioManager audioManager;
 
     public Player player;
+
+    //public MainUI mainUI;
+
     public int levelNo;
 
     void Start()

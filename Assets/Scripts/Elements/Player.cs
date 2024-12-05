@@ -1,4 +1,4 @@
-//using DG.Tweening;
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("Coin"))
         {
-            //gameDirector.coinManager.IncreaseCoinCount(1);
+            gameDirector.uraniumManager.IncreaseCoinCount(1);
             //gameDirector.fxManager.PlayCoinCollectedFX(collision.transform.position);
             collision.gameObject.SetActive(false);
         }
@@ -99,14 +99,14 @@ public class Player : MonoBehaviour
             gameObject.SetActive(false);
             gameDirector.LevelFailed();
         }
-        //gameDirector.fxManager.PlayPlayerHitFX(transform.position);
+        gameDirector.fxManager.PlayPlayerHitFX(transform.position);
     }
 
     void UpdateHealthBar(float ratio)
     {
-        //healthBarFillParent.transform.localScale = new Vector3(ratio, 1f, 1f);
-        //healthBarFillParent.DOScaleX(ratio, .5f);
-        //healthBarFill.DOColor(Color.red, .15f).SetLoops(2, LoopType.Yoyo);
+        healthBarFillParent.transform.localScale = new Vector3(ratio, 1f, 1f);
+        healthBarFillParent.DOScaleX(ratio, .5f);
+        healthBarFill.DOColor(Color.red, .15f).SetLoops(2, LoopType.Yoyo);
         if (ratio < .5f)
         {
             healthBarFill.color = Color.red;
@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
     {
         var newBullet = Instantiate(bulletPrefab, bulletsParent);
         newBullet.transform.position = transform.position;
-        //newBullet.StartBullet(playerBulletSpeed, dir, gameDirector);
+        newBullet.StartBullet(playerBulletSpeed, dir, gameDirector);
         //gameDirector.audioManager.PlayBulletAS();
     }
 }
